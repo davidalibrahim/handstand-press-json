@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Handstand Press • JSON PWA</title>
+  <meta name="theme-color" content="#0b1b2b" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="title">
+      <h1>Handstand Press</h1>
+      <p class="subtitle">JSON data • PWA (safe cache)</p>
+    </div>
+    <div class="controls-row">
+      <label class="day-picker">
+        <span>Day</span>
+        <input type="number" id="day-input" min="1" value="1" />
+      </label>
+      <button id="today-btn" class="btn ghost">Today</button>
+      <button id="prev-btn" class="btn ghost">Prev</button>
+      <button id="next-btn" class="btn ghost">Next</button>
+      <button id="refresh-btn" class="btn">Refresh</button>
+      <button id="clear-btn" class="btn ghost">Clear saved data</button>
+      <button id="update-btn" class="btn ghost">Update app</button>
+      <a class="btn ghost" href="debug.html">Debug</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card intro">
+      <p><strong>How it works:</strong> App fetches <code>workouts.json</code> from this repo. Edit that file to update content.</p>
+      <p class="muted small">Cache: <code>hs-json-cache-20250811141016</code></p>
+    </section>
+
+    <section id="health" class="card"></section>
+    <section id="workout"></section>
+
+    <section class="card day-complete">
+      <label class="checkbox">
+        <input type="checkbox" id="complete-day" />
+        <span>Mark day complete</span>
+      </label>
+      <div class="notes">
+        <label for="day-notes">Notes</label>
+        <textarea id="day-notes" placeholder="How did it feel? Any pain flags? What to adjust tomorrow?"></textarea>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>v2.1 (PWA)</span>
+      <a href="#" id="export-data" class="link">Export progress</a>
+      <span class="muted">•</span>
+      <a href="README.html" class="link">How to use</a>
+    </div>
+  </footer>
+
+  <dialog id="video-dialog">
+    <form method="dialog" class="dialog-form">
+      <video id="video-player" controls playsinline></video>
+      <div class="dialog-actions">
+        <button class="btn" value="ok">Close</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    window.APP_CONFIG = { dataURL: './workouts.json' };
+  </script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+        try {
+          const reg = await navigator.serviceWorker.register('./service-worker.js?cache=hs-json-cache-20250811141016');
+          // Update flow
+          document.getElementById('update-btn').addEventListener('click', async () => {
+            await reg.update();
+            if (reg.waiting) {
+              reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+            }
+          });
+          navigator.serviceWorker.addEventListener('controllerchange', () => window.location.reload());
+        } catch (e) { console.warn('SW register failed', e); }
+      });
+    }
+  </script>
+</body>
+</html>

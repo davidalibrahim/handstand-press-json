@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>Debug</title>
+<link rel="stylesheet" href="styles.css">
+<div class="container">
+  <div class="card">
+    <h1>Debug</h1>
+    <p>Cache name: <code>hs-json-cache-20250811141016</code></p>
+    <p>This shows what <code>workouts.json</code> looks like.</p>
+    <pre id="out"></pre>
+  </div>
+</div>
+<script>
+(async () => {
+  const res = await fetch('./workouts.json', { cache: 'no-cache' });
+  const json = await res.json();
+  document.getElementById('out').textContent = JSON.stringify(json, null, 2);
+})();
+</script>
