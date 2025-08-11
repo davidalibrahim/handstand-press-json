@@ -57,7 +57,8 @@ function renderDay(day){
 
     const content = document.createElement('div');
     const h2 = document.createElement('h2'); h2.textContent = d.name;
-    const pills = document.createElement('div'); pills.className='pills';
+    const modeBadge = document.createElement('span'); modeBadge.className='pill'; modeBadge.textContent = (repsStr.match(/(\d+)\s*(s|sec|secs|second|seconds)\b/) ? 'Timer' : 'Reps');
+    const pills = document.createElement('div'); pills.className='pills'; pills.appendChild(modeBadge);
     if (d.sets) pills.appendChild(pill(`${d.sets} sets`));
     if (d.reps) pills.appendChild(pill(`${d.reps}`));
 
@@ -112,6 +113,7 @@ function renderDay(day){
       pause.addEventListener('click', ()=>{ running=false; cancelAnimationFrame(raf); saveDrill({remaining, currentSet}); });
       reset.addEventListener('click', ()=>{ running=false; cancelAnimationFrame(raf); remaining=seconds; currentSet=1; lastTs=0; timeDisplay.textContent=formatTime(remaining); setC.textContent=`Set ${currentSet} / ${totalSets}`; saveDrill({remaining, currentSet, done:false}); doneCb.checked=false; });
 
+      t.append(timeDisplay, start, pause, reset, setC);
       controls.appendChild(t);
     } else {
       const r = document.createElement('div'); r.className='reps';
@@ -148,6 +150,14 @@ function renderDay(day){
     const contentWrap = document.createElement('div');
     contentWrap.appendChild(h2);
     contentWrap.appendChild(pills);
+    if (isHold){
+      const diag = document.createElement('div');
+      diag.className = 'muted small';
+      const mm = repsStr.match(/(\d+)/);
+      diag.textContent = 'Timer mode • parsed seconds: ' + (mm ? mm[1] : 'n/a');
+      contentWrap.appendChild(diag);
+    }
+
     contentWrap.appendChild(controls);
     contentWrap.appendChild(doneRow);
 
