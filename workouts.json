@@ -6,35 +6,11 @@
     "drills": [
       {
         "name": "Wall Handstand Hold (belly-to-wall)",
-        "gif": "media/day1-drill1.gif",
-        "mp4": "media/day1-drill1.mp4",
+        "gif": "https://img.youtube.com/vi/dj1z4_JqR0A/hqdefault.jpg",
+        "mp4": "https://www.youtube.com/watch?v=dj1z4_JqR0A",
         "sets": 2,
         "reps": "35s",
-        "tutorial": "media/day1-drill1-tutorial.mp4"
-      },
-      {
-        "name": "Hollow Body Hold",
-        "gif": "media/day1-drill2.gif",
-        "mp4": "media/day1-drill2.mp4",
-        "sets": 2,
-        "reps": "30s",
-        "tutorial": "media/day1-drill2-tutorial.mp4"
-      },
-      {
-        "name": "Seated Pike Leg Lifts",
-        "gif": "media/day1-drill3.gif",
-        "mp4": "media/day1-drill3.mp4",
-        "sets": 2,
-        "reps": "10 reps",
-        "tutorial": "media/day1-drill3-tutorial.mp4"
-      },
-      {
-        "name": "Seated Pike Fold",
-        "gif": "media/day1-drill4.gif",
-        "mp4": "media/day1-drill4.mp4",
-        "sets": 1,
-        "reps": "40s",
-        "tutorial": "media/day1-drill4-tutorial.mp4"
+        "tutorial": "https://www.youtube.com/watch?v=dj1z4_JqR0A"
       }
     ]
   }
