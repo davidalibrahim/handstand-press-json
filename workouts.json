@@ -1,16 +1,40 @@
 [
   {
     "day": 1,
-    "phase": "Phase 1 \u2013 Week 1",
-    "title": "Handstand Press \u2013 Day 1",
+    "phase": "Phase 1 – Week 1",
+    "title": "Handstand Press – Day 1",
     "drills": [
       {
         "name": "Wall Handstand Hold (belly-to-wall)",
-        "gif": "https://img.youtube.com/vi/dj1z4_JqR0A/hqdefault.jpg",
-        "mp4": "https://www.youtube.com/watch?v=dj1z4_JqR0A",
+        "gif": "https://img.youtube.com/vi/KImFtIzAtm4/hqdefault.jpg",
+        "mp4": "https://www.youtube.com/embed/KImFtIzAtm4",
         "sets": 2,
         "reps": "35s",
-        "tutorial": "https://www.youtube.com/watch?v=dj1z4_JqR0A"
+        "tutorial": "https://www.youtube.com/watch?v=KImFtIzAtm4"
+      },
+      {
+        "name": "Hollow Body Hold",
+        "gif": "https://img.youtube.com/vi/01iEknlpnVY/hqdefault.jpg",
+        "mp4": "https://www.youtube.com/embed/01iEknlpnVY",
+        "sets": 2,
+        "reps": "30s",
+        "tutorial": "https://www.youtube.com/watch?v=01iEknlpnVY"
+      },
+      {
+        "name": "Seated Pike Leg Lifts",
+        "gif": "https://img.youtube.com/vi/6w4gmF0NUX0/hqdefault.jpg",
+        "mp4": "https://www.youtube.com/embed/6w4gmF0NUX0",
+        "sets": 2,
+        "reps": "10 reps",
+        "tutorial": "https://www.youtube.com/watch?v=6w4gmF0NUX0"
+      },
+      {
+        "name": "Seated Pike Fold",
+        "gif": "https://img.youtube.com/vi/6e4ZmXc79h4/hqdefault.jpg",
+        "mp4": "https://www.youtube.com/embed/6e4ZmXc79h4",
+        "sets": 1,
+        "reps": "40s",
+        "tutorial": "https://www.youtube.com/watch?v=6e4ZmXc79h4"
       }
     ]
   }
