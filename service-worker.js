@@ -1,5 +1,5 @@
 
-const CACHE = 'hs-json-cache-20250811143403-20250811141016';
+const CACHE = 'hs-json-cache-20250811144457';
 const PRECACHE_ASSETS = [
   './','./index.html','./styles.css','./app.js','./workouts.json',
   './manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png',

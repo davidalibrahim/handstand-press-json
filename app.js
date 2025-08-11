@@ -42,6 +42,7 @@ function renderDay(day){
   if (!drills.length) setHealth(`Day ${day} loaded, but no drills found.`);
 
   drills.forEach((d, idx) => {
+    try {
     const card = document.createElement('article'); card.className='card drill';
 
     const media = document.createElement('div'); media.className='media';
@@ -62,7 +63,7 @@ function renderDay(day){
 
     const controls = document.createElement('div'); controls.className='controls';
     const repsStr = (d.reps||'').toLowerCase().trim();
-    const isHold = /(^\d+\s*s$)|(\bsec\b)|(\bseconds?\b)/.test(repsStr);
+    const isHold = /(\d+)\s*(s|sec|secs|second|seconds)\b/.test(repsStr);
     const doneRow = document.createElement('label'); doneRow.className='checkbox';
     const doneCb = document.createElement('input'); doneCb.type='checkbox';
     const doneSpan = document.createElement('span'); doneSpan.textContent='Mark drill done';
@@ -153,6 +154,9 @@ function renderDay(day){
     card.appendChild(media);
     card.appendChild(contentWrap);
     out.appendChild(card);
+    } catch (e) {
+      const err = document.createElement('div'); err.className='card'; err.innerHTML = `<p class='muted'>Error rendering drill ${idx+1}: ${'${e.message}'}</p>`; out.appendChild(err);
+    }
   });
 
   const cd = document.getElementById('complete-day');
